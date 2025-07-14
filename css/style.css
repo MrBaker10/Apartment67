@@ -335,12 +335,11 @@ body {
 }
 
 
-/* ========= FOOTER STYLES ========= */
+/* ========= FOOTER STYLES (Update mit Social Icons) ========= */
 .footer {
     background-color: var(--primary-color);
     color: #f0f0f0;
-    padding: 20px;
-    text-align: center;
+    padding: 30px 20px; /* Etwas mehr Padding */
 }
 
 .footer__container {
@@ -349,17 +348,49 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Wichtig für Responsiveness */
     gap: 20px;
+}
+
+/* Elemente für die Sortierung auf kleinen Bildschirmen */
+.footer__copyright { order: 1; text-align: center; flex-basis: 100%; }
+.footer__social { order: 2; text-align: center; flex-basis: 100%; }
+.footer__nav { order: 3; text-align: center; flex-basis: 100%; }
+
+.footer__social a {
+    color: #f0f0f0;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer__social svg {
+    width: 24px;
+    height: 24px;
+}
+
+.footer__social a:hover {
+    color: var(--secondary-color); /* Nutzt unsere Beige-Akzentfarbe */
 }
 
 .footer__nav a {
     color: #f0f0f0;
     text-decoration: none;
-    margin-left: 20px;
+    margin: 0 15px; /* Etwas mehr Abstand */
     transition: color 0.3s ease;
 }
 
 .footer__nav a:hover {
     color: var(--secondary-color);
+}
+
+/* Desktop-Anpassungen für den Footer */
+@media (min-width: 768px) {
+    .footer__container {
+        justify-content: space-between;
+    }
+    
+    .footer__copyright { order: 1; flex-basis: auto; }
+    .footer__social { order: 2; flex-basis: auto; }
+    .footer__nav { order: 3; flex-basis: auto; }
 }
